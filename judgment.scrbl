@@ -91,7 +91,7 @@ sequence of rules, written in the traditional inference rule notation.
 The horizontal line can be followed by an optional name for the rule.
 The length of the horizontal line must be greater than 2 hyphens.
 
-The judgment definition also takes an optional contract delcaration and optional
+The judgment definition also takes an optional contract declaration and optional
 mode declaration.
 I also use a contract to help catch bugs, including some syntax pitfalls
 mentioned earlier.

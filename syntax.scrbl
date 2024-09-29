@@ -46,8 +46,7 @@ There are two common pitfalls to avoid when working with syntax in Redex.
 First, be careful about using untagged, arbitrary variables, such as by using
 @rtech{variable} or @rtech{variable-not-otherwise-mentioned} in your syntax
 definition.
-This makes it really easy to create arbitrary variable names, but also easy to
-make to get typos interpreted as variables.
+This makes it really easy to create arbitrary variable names, but also easy to make typos be interpreted as variables.
 This can cause very unexpected failures.
 Apparently valid matches will not fail to match and metafunctions can have
 undefined behavior.
@@ -102,19 +101,19 @@ notation.
 Variables, @redex{x} and @redex{y}, are any symbol not used as a keyword or
 literal elsewhere in the grammar, @rtech{variable-not-otherwise-mentioned}.
 
-This essentially equivalent to the grammar from the Coq model in
+This is essentially equivalent to the grammar from the Coq model in
 @seclink["sec:preface"], but also fixes a representation of variables, and
 defines the metafunction @racket[substitute] and the Racket
 @racket[alpha-equivalent?] for @tech{BoxyL}.
 
 @section{Pattern Matching}
-Redex has a sophisticated formal pattern language, but in essense any symbols not
+Redex has a sophisticated formal pattern language, but in essence any symbols not
 recognized as a BNF symbol is treated as a keyword.
 When I write @redex{(car e)} in the grammar, this is understood to mean the
 literal symbol @redex{car} followed by some expression @redex{e} is also an
 expression.
 The pattern language also has some built-in nonterminals, such as
-@rtech{natural} which indicates a natural number literals such as @racket[5].
+@rtech{natural} which indicates a natural number literal such as @racket[5].
 
 We can ask the Redex pattern matcher, via @racket[redex-match?], whether terms
 match some nonterminal from the grammar.
@@ -161,7 +160,7 @@ operations on syntax, using @rtech{any}.
 
 When in Racket, we use @racket[term] to inject syntax into Redex.
 @racket[term] acts like @racket[quasiquote], and even supports unquote, so we
-can write use Racket to compute terms through templating.
+can use Racket to compute terms through templating.
 Most quoted s-expressions are also valid Redex terms, which can be useful if we
 want to move between s-expressions in Racket and terms in Redex.
 
@@ -270,7 +269,7 @@ In this tutorial, I give only the simplest possible use of
 But Redex's support for binding is extremely sophisticated.
 It can support n-ary lexical binding with shadowing, pattern-matching style
 binding, module-style binding.
-See @rtech{binding forms} in the Redex docs to the many examples of complex binding support.
+See @rtech{binding forms} in the Redex docs for many examples of complex binding support.
 
 @section{Random Generation of Syntax}
 Finally, we can generate terms from the grammar.
@@ -292,7 +291,7 @@ always generate terms from grammars and judgments.
 Once we're done querying, we can move to testing.
 Redex features a unit testing library.
 Tests are great for detecting breakages as you start tinkering with your model,
-and can also report more information that the mostly-boolean query functions.
+and can also report more information than the mostly-boolean query functions.
 
 Redex, unfortunately, doesn't have a test function for patterns.
 Instead, we have to use @racket[test-predicate] and @racket[redex-match?].
@@ -341,7 +340,7 @@ pattern, a predicate, and (optionally), the number of attempts.
 The Redex pattern language is very expressive, and one quite nice feature that
 is hard to find in the documentation is using @rtech{side-conditions} in
 grammar.
-I use this occassionally, particularly when modeling machine languages.
+I use this occasionally, particularly when modeling machine languages.
 For example, below I define a syntax with 64-bit integers.
 @examples[
 #:eval boxy-evalor
